@@ -11,10 +11,10 @@ var BAR_HEIGHT = CLOUD_HEIGHT - TEXT_WIDTH - GAP - GAP - TEXT_WIDTH; // 150
 var BAR_WIDTH = 40;
 var HEADER_GAP = 70;
 
-var YOU = 'Вы';
+var MAIN_PLAYER = 'Вы';
 var MAIN_FONT = '16px PT Mono';
-var WINNER = 'Ура вы победили!';
-var LIST_RESULTS = 'Список результатов:';
+var STATISTIC_TITLE = 'Ура вы победили!';
+var STATISTIC_TEXT = 'Список результатов:';
 var COLORS = {
   BLACK: '#000',
   WHITE: '#fff',
@@ -61,13 +61,13 @@ window.renderStatistics = function (ctx, players, times) {
 
   renderCongratulationText(
       ctx,
-      WINNER,
+      STATISTIC_TITLE,
       CLOUD_X + HEADER_GAP,
       GAP + FONT_GAP);
 
   renderCongratulationText(
       ctx,
-      LIST_RESULTS,
+      STATISTIC_TEXT,
       CLOUD_X + HEADER_GAP,
       GAP + FONT_GAP + FONT_GAP);
 
@@ -76,7 +76,7 @@ window.renderStatistics = function (ctx, players, times) {
   for (var i = 0; i < players.length; i++) {
     // Random color
     var randomColor = Math.floor(Math.random() * 100) + 1;
-    if (players[i] === YOU) {
+    if (players[i] === MAIN_PLAYER) {
       ctx.fillStyle = COLORS.RED;
     } else {
       ctx.fillStyle = 'hsl(240,' + randomColor + '%, 50%)';
